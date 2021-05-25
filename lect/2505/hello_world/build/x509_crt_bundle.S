@@ -1,4 +1,4 @@
-/* * Data converted from /home/nasko/var/git/bhtc/hello_world/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /home/nasko/var/git/bhtc/lect/2505/hello_world/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

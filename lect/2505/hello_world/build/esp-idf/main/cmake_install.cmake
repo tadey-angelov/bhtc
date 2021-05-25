@@ -1,4 +1,4 @@
-# Install script for directory: /home/nasko/var/git/bhtc/hello_world/main
+# Install script for directory: /home/nasko/var/git/bhtc/lect/2505/hello_world/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

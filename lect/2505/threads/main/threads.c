@@ -21,12 +21,14 @@ void sleep_task(void *_ms) {
 void app_main(void) {
 	BaseType_t ret;
 	TaskHandle_t hnd[10];
-	unsigned int i;
+	unsigned int i, j;
 	
 	for (i = 0u; i < sizeof (hnd) / sizeof (hnd[0]); i++) {
 		ret = xTaskCreate(sleep_task, "sleeper", 2u * configMINIMAL_STACK_SIZE, (void *)(1000u * (i + 1u)), tskIDLE_PRIORITY, &hnd[i]);
 		if (ret != pdPASS) {
 			printf("error creating sleeper %u\n", i);
+			for (j = 0; j < i; j++)
+				vTaskDelete(hnd[j]);
 			goto ERR;
 		}
 	}
