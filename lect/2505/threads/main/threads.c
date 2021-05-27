@@ -11,7 +11,7 @@ void sleep_task(void *_ms) {
 	uint32_t ms = (uint32_t)_ms;
 	
 	while (1) {
-		printf("sleep_task(%d) sleeping...\n", ms);
+		printf("sleep_task(%u) sleeping...\n", ms);
 		vTaskDelay(ms / portTICK_PERIOD_MS);
 	}
 	
