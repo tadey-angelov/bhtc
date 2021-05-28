@@ -62,7 +62,7 @@ void app_main(void) {
 		goto CONS_ERR;
 	}
 	
-	for (i = 0u; 1; i++) {
+	for (i = 0u; 1; i++) { /* house keeping */
 		vTaskDelay(10000u / portTICK_PERIOD_MS);
 	}
 	
