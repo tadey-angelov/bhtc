@@ -17,7 +17,6 @@ void prod(void *_arg) {
 	(void)_arg;
 	
 	while (1) {
-		xQueueSend(q, (void *)&val, portMAX_DELAY);
 		for (j = 0; j < 32; j++, val++)
 			xQueueSend(q, (void *)&val, portMAX_DELAY);
 		vTaskDelay(1000u / portTICK_PERIOD_MS);

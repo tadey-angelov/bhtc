@@ -1,0 +1,21 @@
+{
+    "project_name":       "bootloader",
+    "project_path":       "/home/nasko/esp/esp-idf/components/bootloader/subproject",
+    "build_dir":          "/home/nasko/var/git/bhtc/lect/2805/queue/build/bootloader",
+    "config_file":        "/home/nasko/var/git/bhtc/lect/2805/queue/sdkconfig",
+    "config_defaults":    "",
+    "app_elf":            "bootloader.elf",
+    "app_bin":            "bootloader.bin",
+    "git_revision":       "v4.4-dev-1254-g639e7ad49",
+    "target":             "esp32",
+    "rev":                "0",
+    "phy_data_partition": "",
+    "monitor_baud" :      "115200",
+    "monitor_toolprefix": "xtensa-esp32-elf-",
+    "config_environment" : {
+        "COMPONENT_KCONFIGS" : "/home/nasko/esp/esp-idf/components/efuse/Kconfig;/home/nasko/esp/esp-idf/components/esp32/Kconfig;/home/nasko/esp/esp-idf/components/esp_common/Kconfig;/home/nasko/esp/esp-idf/components/esp_hw_support/Kconfig;/home/nasko/esp/esp-idf/components/esp_system/Kconfig;/home/nasko/esp/esp-idf/components/freertos/Kconfig;/home/nasko/esp/esp-idf/components/log/Kconfig;/home/nasko/esp/esp-idf/components/newlib/Kconfig;/home/nasko/esp/esp-idf/components/spi_flash/Kconfig",
+        "COMPONENT_KCONFIGS_PROJBUILD" : "/home/nasko/esp/esp-idf/components/bootloader/Kconfig.projbuild;/home/nasko/esp/esp-idf/components/esp_rom/Kconfig.projbuild;/home/nasko/esp/esp-idf/components/esptool_py/Kconfig.projbuild;/home/nasko/esp/esp-idf/components/partition_table/Kconfig.projbuild"
+    },
+    "build_components" : [ "bootloader", "bootloader_support", "efuse", "esp32", "esp_common", "esp_hw_support", "esp_rom", "esp_system", "esptool_py", "freertos", "hal", "log", "main", "micro-ecc", "newlib", "partition_table", "soc", "spi_flash", "xtensa", "" ],
+    "build_component_paths" : [ "/home/nasko/esp/esp-idf/components/bootloader", "/home/nasko/esp/esp-idf/components/bootloader_support", "/home/nasko/esp/esp-idf/components/efuse", "/home/nasko/esp/esp-idf/components/esp32", "/home/nasko/esp/esp-idf/components/esp_common", "/home/nasko/esp/esp-idf/components/esp_hw_support", "/home/nasko/esp/esp-idf/components/esp_rom", "/home/nasko/esp/esp-idf/components/esp_system", "/home/nasko/esp/esp-idf/components/esptool_py", "/home/nasko/esp/esp-idf/components/freertos", "/home/nasko/esp/esp-idf/components/hal", "/home/nasko/esp/esp-idf/components/log", "/home/nasko/esp/esp-idf/components/bootloader/subproject/main", "/home/nasko/esp/esp-idf/components/bootloader/subproject/components/micro-ecc", "/home/nasko/esp/esp-idf/components/newlib", "/home/nasko/esp/esp-idf/components/partition_table", "/home/nasko/esp/esp-idf/components/soc", "/home/nasko/esp/esp-idf/components/spi_flash", "/home/nasko/esp/esp-idf/components/xtensa", "" ]
+}

@@ -14,10 +14,10 @@ sem_t countsem, spacesem;
 sem_t lock;
 
 void enqueue(void *value) {
-	sem_wait(&spacesem);
+	while (sem_wait(&spacesem) < 0);
 	
 /* XXX BEGIN CRIT. SECT. */
-	sem_wait(&lock);
+	while (sem_wait(&lock) < 0);
 	buffer[(in++) & (SIZE - 1)] = value;
 	sem_post(&lock);
 /* XXX CRIT. SECT. END */
@@ -29,10 +29,10 @@ void enqueue(void *value) {
 void *dequeue(void) {
 	void *result;
 	
-	sem_wait(&countsem);
+	while (sem_wait(&countsem) < 0);
 	
 /* XXX BEGIN CRIT. SECT. */
-	sem_wait(&lock);
+	while (sem_wait(&lock) < 0);
 	result = buffer[(out++) & (SIZE - 1)];
 	sem_post(&lock);	
 /* XXX CRIT. SECT. END */
@@ -46,7 +46,6 @@ void *prod(void *_arg) {
 	int j;
 	
 	while (1) {
-		enqueue((void *)val);
 		for (j = 0; j < 32; j++, val++)
 			enqueue((void *)val);
 		sleep(1u);
