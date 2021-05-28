@@ -57,7 +57,7 @@ void app_main(void) {
 		goto PROD_ERR;
 	}
 	
-	ret = xTaskCreate(prod, "consumer", 2u * configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, &c);
+	ret = xTaskCreate(cons, "consumer", 2u * configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, &c);
 	if (ret != pdPASS) {
 		printf("error creating producer\n");
 		goto CONS_ERR;
