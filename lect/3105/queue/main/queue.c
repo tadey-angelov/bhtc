@@ -17,8 +17,10 @@ void prod0(void *_arg) {
 	(void)_arg;
 	
 	while (1) {
-		for (j = 0; j < 32; j++, val++)
+		for (j = 0; j < 32; j++, val++) {
 			xQueueSend(q, (void *)&val, portMAX_DELAY);
+			printf("0\t\tenqueue %u\n", val);
+		}
 		vTaskDelay(1000u / portTICK_PERIOD_MS);
 	}
 	
@@ -32,10 +34,12 @@ void prod1(void *_arg) {
 	(void)_arg;
 	
 	while (1) {
-		for (j = 0; j < 8; j++, val <<= 1)
+		for (j = 0; j < 8; j++, val <<= 1) {
 			xQueueSend(q, (void *)&val, portMAX_DELAY);
+			printf("1\t\t\tenqueue %u\n", val);
+		}
 		if (!val) val = 1u;
-		vTaskDelay(100u / portTICK_PERIOD_MS);
+		vTaskDelay(500u / portTICK_PERIOD_MS);
 	}
 	
 	vTaskDelete(NULL);
@@ -82,7 +86,7 @@ void app_main(void) {
 		goto PROD1_ERR;
 	}
 	
-	ret = xTaskCreate(cons, "consumer", 4u * configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 5u, &c);
+	ret = xTaskCreate(cons, "consumer", 4u * configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 2u, &c);
 	if (ret != pdPASS) {
 		printf("error creating consumer\n");
 		goto CONS_ERR;
