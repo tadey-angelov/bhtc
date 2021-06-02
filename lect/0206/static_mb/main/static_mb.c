@@ -52,7 +52,8 @@ void app_main(void) {
 	static StaticMessageBuffer_t mb;
 	static StackType_t producer_stack[4u * configMINIMAL_STACK_SIZE];
 	static StackType_t consumer_stack[4u * configMINIMAL_STACK_SIZE];
-	static our_struct_t buf[2];
+	/* XXX quick fix here , msgs are |size_t|msg| ergo sizeof (msg) + sizeof (size_t) + padding */
+	static uint8_t buf[sizeof (our_struct_t) + 2u * sizeof (size_t)];
 	int i;
 	
 	mb_hnd = xMessageBufferCreateStatic(sizeof (buf), (uint8_t *)&buf, &mb);
@@ -62,7 +63,7 @@ void app_main(void) {
 			"producer_task",
 			4u * configMINIMAL_STACK_SIZE,
 			&mb_hnd,
-			tskIDLE_PRIORITY,
+			tskIDLE_PRIORITY + 1u,
 			producer_stack,
 			&producer
 	);
@@ -72,7 +73,7 @@ void app_main(void) {
 			"consumer_task",
 			4u * configMINIMAL_STACK_SIZE,
 			&mb_hnd,
-			tskIDLE_PRIORITY,
+			tskIDLE_PRIORITY + 2u,
 			consumer_stack,
 			&consumer
 	);
