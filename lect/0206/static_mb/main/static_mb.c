@@ -56,7 +56,7 @@ void app_main(void) {
 	static uint8_t buf[sizeof (our_struct_t) + 2u * sizeof (size_t)];
 	int i;
 	
-	mb_hnd = xMessageBufferCreateStatic(sizeof (buf), (uint8_t *)&buf, &mb);
+	mb_hnd = xMessageBufferCreateStatic(sizeof (buf), buf, &mb);
 	
 	producer_hnd = xTaskCreateStatic(
 			prod,
