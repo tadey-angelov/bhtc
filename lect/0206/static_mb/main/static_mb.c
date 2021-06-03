@@ -52,7 +52,7 @@ void app_main(void) {
 	static StaticMessageBuffer_t mb;
 	static StackType_t producer_stack[4u * configMINIMAL_STACK_SIZE];
 	static StackType_t consumer_stack[4u * configMINIMAL_STACK_SIZE];
-	/* XXX quick fix here , msgs are |size_t|msg| ergo sizeof (msg) + sizeof (size_t) + padding */
+	/* XXX quick fix here, msgs are |size_t|msg| ergo sizeof (msg) + sizeof (size_t) + padding */
 	static uint8_t buf[sizeof (our_struct_t) + 2u * sizeof (size_t)];
 	int i;
 	
