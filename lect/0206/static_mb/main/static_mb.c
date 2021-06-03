@@ -67,6 +67,7 @@ void app_main(void) {
 			producer_stack,
 			&producer
 	);
+	(void)producer_hnd;
 	
 	consumer_hnd = xTaskCreateStatic(
 			cons,
@@ -77,8 +78,6 @@ void app_main(void) {
 			consumer_stack,
 			&consumer
 	);
-	
-	(void)producer_hnd;
 	(void)consumer_hnd;
 	
 	for (i = 0u; 1; i++) { /* house keeping */
