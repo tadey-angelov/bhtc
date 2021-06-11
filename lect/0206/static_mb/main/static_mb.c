@@ -58,6 +58,9 @@ void app_main(void) {
 	
 	mb_hnd = xMessageBufferCreateStatic(sizeof (buf), buf, &mb);
 	
+	vTaskDelay(10000u / portTICK_PERIOD_MS);
+	printf("starting tasks...\n");
+	
 	producer_hnd = xTaskCreateStatic(
 			prod,
 			"producer_task",
