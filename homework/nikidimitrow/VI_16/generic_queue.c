@@ -17,7 +17,7 @@ void dequeue(QueueList *, void *);
 
 int enqueue(QueueList *q, const void *data)
 {
-    struct node *newNode = (node *)malloc(sizeof(node));
+    struct Node *newNode = (node *)malloc(sizeof(node));
 
     if(newNode == NULL)
     {
