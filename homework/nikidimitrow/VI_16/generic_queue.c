@@ -15,7 +15,7 @@ struct QueueList
 int  enqueue(QueueList *, const void *);
 void dequeue(QueueList *, void *);
 
-int enqueue(QueueList *q, const void *data)
+int enqueue(QueueList *q, const void *someData)
 {
     struct Node *newNode = (node *)malloc(sizeof(node));
 
@@ -34,7 +34,7 @@ int enqueue(QueueList *q, const void *data)
 
     newNode->nextNode = NULL;
 
-    memcpy(newNode->data, data, q->memSize);
+    memcpy(newNode->someData, someData, q->memSize);
 
     if(q->sizeOfQueue == 0)
     {
@@ -50,12 +50,12 @@ int enqueue(QueueList *q, const void *data)
     return 0;
 }
 
-void dequeue(QueueList *q, void *data)
+void dequeue(QueueList *q, void *someData)
 {
     if(q->sizeOfQueue > 0)
     {
-        struct Node *temp = q->head;
-        memcpy(data, temp->data, q->memSize);
+        struct Node *tempNode = q->head;
+        memcpy(someData, temp->someData, q->memSize);
 
         if(q->sizeOfQueue > 1)
         {
@@ -68,7 +68,7 @@ void dequeue(QueueList *q, void *data)
         }
 
         q->sizeOfQueue--;
-        free(temp->data);
-        free(temp);
+        free(tempNode->someData);
+        free(tempNode);
     }
 }
