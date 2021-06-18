@@ -32,7 +32,7 @@ int enqueue(QueueList *q, const void *data)
         return -1;
     }
 
-    newNode->next = NULL;
+    newNode->nextNode = NULL;
 
     memcpy(newNode->data, data, q->memSize);
 
@@ -42,7 +42,7 @@ int enqueue(QueueList *q, const void *data)
     }
     else
     {
-        q->tail->next = newNode;
+        q->tail->nextNode = newNode;
         q->tail = newNode;
     }
 
@@ -59,7 +59,7 @@ void dequeue(QueueList *q, void *data)
 
         if(q->sizeOfQueue > 1)
         {
-            q->head = q->head->next;
+            q->head = q->head->nextNode;
         }
         else
         {
